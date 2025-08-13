@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import Accordion from "./Accordion.tsx";
 
 interface Item {
@@ -44,7 +45,14 @@ const AccordionContainer = () => {
     return (
         <div className="md:grid md:grid-cols-2">
             {items.map(({heading, content}, index) => (
-                <Accordion key={index} heading={heading} content={content} />
+                <motion.div
+                    initial={{ opacity: 0, x: -500 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: index * 0.2, delay: 0.2 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                >
+                    <Accordion key={index} heading={heading} content={content} />
+                </motion.div>
             ))}
         </div>
     )
