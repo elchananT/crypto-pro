@@ -4,6 +4,8 @@ import {useState} from "react";
 import { RxCross1 } from "react-icons/rx";
 import {motion, useScroll, useTransform } from "motion/react";
 
+const items: string[] = ["Why Cryptix?", "Cryptos", "How it works", "Testimonials", "FAQ"];
+
 const Navigation = () => {
     const [isVisible, setIsVisible] = useState<boolean>(false);
     const { scrollY } = useScroll();
@@ -15,17 +17,32 @@ const Navigation = () => {
             <nav className="flex justify-between items-center w-screen px-8 xl:px-28 py-6 bg-[#08070E]">
                 {/*Desktops*/}
                 <div className="flex items-center">
-                    <div className="cursor-pointer flex items-center gap-2">
+                    <motion.div
+                        whileHover={{ scale: 1.1, transition: { delay: 0.1, duration: 0.3, type: 'spring', stiffness: 300 }}}
+                        whileTap={{ scale: 0.9, transition: { delay: 0.1, duration: 0.3, type: 'spring', stiffness: 300 }}}
+                        initial={{ x: -1000 }}
+                        animate={{ x: [-1000, 100, -20, 0]}}
+                        transition={{ duration: 1.4 }}
+                        className="cursor-pointer flex items-center gap-2"
+                    >
                         <img src="./logo.svg" className="flex-1 h-[2rem] w-[2rem] object-cover" />
                         <h2 className="text-3xl text-white">Cryptix</h2>
-                    </div>
+                    </motion.div>
 
                     <div className="max-xl:hidden text-gray-300 flex items-center gap-6 ml-10 pt-1">
-                        <button className="cursor-pointer">Why Cryptix?</button>
-                        <button className="cursor-pointer">Cryptos</button>
-                        <button className="cursor-pointer">How it works</button>
-                        <button className="cursor-pointer">Testimonials</button>
-                        <button className="cursor-pointer">FAQ</button>
+                        {items.map((item: string, index: number) => (
+                            <motion.button
+                                key={index}
+                                initial={{ y: -20, scale: 0.8, opacity: 0 }}
+                                animate={{ y: 0, scale: 1, opacity: 1 }}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: index * 0.1
+                                }}
+                                className="cursor-pointer"
+                            >{item}
+                            </motion.button>
+                        ))}
                     </div>
                 </div>
 
