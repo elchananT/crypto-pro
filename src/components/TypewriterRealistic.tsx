@@ -64,12 +64,7 @@ const TypewriterRealistic: React.FC<TypewriterProps> = ({
 
     return (
         <h1
-            style={{
-                fontSize: "4rem",
-                fontWeight: "bold",
-                fontFamily: "monospace",
-                whiteSpace: "pre-wrap",
-            }}
+            className="text-center text-5xl md:text-8xl md:w-6/10 font-semibold"
         >
             {displayedText}
             <span
@@ -81,7 +76,7 @@ const TypewriterRealistic: React.FC<TypewriterProps> = ({
                     animation: "blink 1s step-start infinite",
                     verticalAlign: "bottom",
                     borderRadius: "1px",
-                    backgroundColor: "black",
+                    backgroundColor: "white",
                 }}
             />
             <style>{`

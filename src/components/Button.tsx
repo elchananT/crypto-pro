@@ -5,9 +5,10 @@ interface ButtonProps {
     title: string;
     variant: 'primary' | 'secondary';
     right?: boolean;
+    delay?: number;
 }
 
-const Button = ({ title, variant, right = false }: ButtonProps) => {
+const Button = ({ title, variant, right = false, delay = 0 }: ButtonProps) => {
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -15,7 +16,7 @@ const Button = ({ title, variant, right = false }: ButtonProps) => {
             transition={{
                 duration: 0.35,
                 ease: "easeOut",
-                delay: 0.8,
+                delay
             }}
             className={`flex items-center ${variant === 'primary' ? "p-1 bg-[#00FFB2]/20 rounded-full" : "border-t border-gray-600/70 h-14"}`}>
             <motion.button
@@ -24,6 +25,7 @@ const Button = ({ title, variant, right = false }: ButtonProps) => {
                 transition={{
                     duration: 0.35,
                     ease: "easeOut",
+                    delay
                 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.9 }}
