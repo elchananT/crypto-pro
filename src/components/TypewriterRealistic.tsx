@@ -6,7 +6,7 @@ interface TypewriterProps {
     addText: string;
     speed?: number;
     pause?: number;
-    size?: 'big' | 'small';
+    size?: 'big' | 'small' | 'medium';
 }
 
 const TypewriterRealistic: React.FC<TypewriterProps> = ({
@@ -66,7 +66,7 @@ const TypewriterRealistic: React.FC<TypewriterProps> = ({
 
     return (
         <h1
-            className={`font-semibold ${size === "big" ? "text-center text-5xl md:text-8xl md:w-6/10" : "text-xl font-medium"}`}
+            className={`${size === "big" ? "font-semibold text-center text-5xl md:text-8xl md:w-6/10" : size === 'small' ? "text-xl font-medium" : "text-4xl"}`}
         >
             {displayedText}
             <span

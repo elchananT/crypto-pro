@@ -10,6 +10,7 @@ import Cards from "./components/Cards.tsx";
 import Recommender from "./components/Recommender.tsx";
 import AccordionContainer from "./components/AccordionContainer.tsx";
 import PreFooter from "./components/PreFooter.tsx";
+import { motion } from "motion/react";
 
 const App = () => {
     return (
@@ -27,8 +28,18 @@ const App = () => {
                 <Cards />
                 <div className="h-[24vh]"/>
                 <div className=" flex flex-col justify-center items-center text-white text-center text-wrap">
-                    <h2 className="text-4xl my-4">Trusted by Crypto Enthusiasts Worldwide</h2>
-                    <p className="w-10/12 mb-4">Join a growing community of investors who choose Cryptix for its seamless experience, security, and premium design.</p>
+                    <motion.h2
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        className="text-4xl my-4">Trusted by Crypto Enthusiasts Worldwide</motion.h2>
+                    <motion.p
+                        initial={{ opacity: 0, x: 10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        className="w-10/12 mb-4">Join a growing community of investors who choose Cryptix for its seamless experience, security, and premium design.</motion.p>
                 </div>
                 <Recommender />
                 <div className="h-[24vh]"/>
