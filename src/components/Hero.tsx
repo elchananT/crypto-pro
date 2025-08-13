@@ -8,7 +8,7 @@ import TypewriterRealistic from "./TypewriterRealistic.tsx";
 
 const Hero = () => {
     return (
-        <motion.div className="h-full mt-24">
+        <motion.div className="h-full mt-14 max-md:pt-10 pt-4 md:mt-24">
                 <Glowing color="white" x={{ base: -700, md: -500 ,lg: -400}} y={-450}/>
                 <Glowing color="white" x={1200} y={-400}/>
             <div className="relative z-40 flex flex-col items-center gap-8 text-wrap text-white">
