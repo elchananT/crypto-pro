@@ -5,7 +5,7 @@ import {PiDesktop} from "react-icons/pi";
 import {CgArrowsExpandRight} from "react-icons/cg";
 import { motion } from "motion/react";
 
-interface Items { icon: React.JSX.Element; heading: string; paragraph: string }[];
+interface Items { icon: React.JSX.Element; heading: string; paragraph: string };
 
 const items: Items[] = [
     {
