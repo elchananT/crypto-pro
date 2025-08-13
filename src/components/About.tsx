@@ -3,6 +3,7 @@ import React from "react";
 import {HiOutlineLightningBolt} from "react-icons/hi";
 import {PiDesktop} from "react-icons/pi";
 import {CgArrowsExpandRight} from "react-icons/cg";
+import { motion } from "motion/react";
 
 interface Items { icon: React.JSX.Element; heading: string; paragraph: string }[];
 
@@ -34,7 +35,18 @@ const About = () => {
         <div className="text-white">
             <div className="flex flex-wrap flex-col sm:flex-row items-center justify-center">
                 {items.map(({icon, heading, paragraph}, index) => (
-                    <div key={index} className={[
+                    <motion.div
+                        initial={{ y: 20, opacity: 0 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        transition={{
+                            type: "spring",
+                            stiffness: 500,
+                            damping: 20,
+                            mass: 0.8,
+                            delay: index * 0.1
+                        }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        key={index} className={[
                         "w-full h-full md:w-1/2 xl:w-1/4 flex flex-col gap-2 p-6 border border-gray-600/70"
                     ]
                         .filter(Boolean)
@@ -46,7 +58,7 @@ const About = () => {
 
                         <h3 className="mt-8 font-medium">{heading}</h3>
                         <p className="text-wrap">{paragraph}</p>
-                    </div>
+                    </motion.div>
                 ))}
             </div>
         </div>
